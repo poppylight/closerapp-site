@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service — Closer</title>
     <meta name="description"
-        content="Terms of Service for Closer - Net Worth Tracker. Read our terms and conditions for using the app.">
+        content="Terms of Service for Closer - Net Worth Tracker. Read the terms and conditions governing your use of the app.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,6 +28,8 @@
             --text-secondary: #9898a8;
             --accent: #34d399;
             --accent-dim: rgba(52, 211, 153, 0.12);
+            --warning: rgba(245, 158, 11, 0.08);
+            --warning-border: rgba(245, 158, 11, 0.2);
         }
 
         body {
@@ -54,6 +56,12 @@
             margin: 0 auto;
             display: flex;
             align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
             gap: 0.75rem;
         }
 
@@ -75,6 +83,18 @@
             font-weight: 600;
             font-size: 0.95rem;
             letter-spacing: -0.01em;
+        }
+
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--accent);
         }
 
         .container {
@@ -100,6 +120,56 @@
             margin-bottom: 2.5rem;
             padding-bottom: 2rem;
             border-bottom: 1px solid var(--border);
+        }
+
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .toc-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc;
+            padding: 0;
+            margin: 0;
+            columns: 2;
+            column-gap: 1.5rem;
+        }
+
+        .toc li {
+            counter-increment: toc;
+            margin-bottom: 0.35rem;
+            break-inside: avoid;
+        }
+
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: var(--accent);
+        }
+
+        .toc a::before {
+            content: counter(toc) ". ";
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.8rem;
         }
 
         h2 {
@@ -164,7 +234,7 @@
         }
 
         ol li::before {
-            content: counter(item) ".";
+            content: counter(item, lower-alpha) ")";
             position: absolute;
             left: 0;
             color: var(--accent);
@@ -195,8 +265,12 @@
             margin: 1.25rem 0;
         }
 
-        .highlight-box p {
+        .highlight-box p,
+        .highlight-box ul li {
             color: var(--text);
+        }
+
+        .highlight-box p:last-child {
             margin-bottom: 0;
         }
 
@@ -208,17 +282,52 @@
             margin: 1.25rem 0;
         }
 
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
         .warning-box {
-            background: rgba(245, 158, 11, 0.08);
-            border: 1px solid rgba(245, 158, 11, 0.2);
+            background: var(--warning);
+            border: 1px solid var(--warning-border);
             border-radius: 12px;
             padding: 1.25rem 1.5rem;
             margin: 1.25rem 0;
         }
 
-        .warning-box p {
+        .warning-box p,
+        .warning-box ul li {
             color: var(--text);
+        }
+
+        .warning-box p:last-child {
             margin-bottom: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.25rem 0;
+            font-size: 0.9rem;
+        }
+
+        thead th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        tbody td {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        tbody tr:hover {
+            background: var(--surface);
         }
 
         .footer {
@@ -244,6 +353,19 @@
             .container {
                 padding: 2rem 1.25rem 3rem;
             }
+
+            .toc ol {
+                columns: 1;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+
+            thead th,
+            tbody td {
+                padding: 0.5rem 0.65rem;
+            }
         }
     </style>
 </head>
@@ -252,150 +374,401 @@
 
     <header class="header">
         <div class="header-inner">
-            <div class="logo">C</div>
-            <span class="header-text">Closer — Terms of Service</span>
+            <div class="header-left">
+                <div class="logo">C</div>
+                <span class="header-text">Closer</span>
+            </div>
+            <nav class="header-nav">
+                <a href="../privacy/">Privacy Policy</a>
+            </nav>
         </div>
     </header>
 
     <main class="container">
         <h1>Terms of Service</h1>
-        <p class="last-updated">Last Updated: February 7, 2026</p>
+        <p class="last-updated">Effective Date: 7 February 2026 &nbsp;|&nbsp; Last Updated: 7 February 2026</p>
 
-        <h2>1. Acceptance of Terms</h2>
-        <p>By downloading, installing, or using the Closer mobile application ("App"), you agree to be bound by these
-            Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
-
-        <h2>2. Description of Service</h2>
-        <p>Closer is a personal net worth tracking application that allows you to:</p>
-        <ul>
-            <li>Track assets and liabilities to calculate your net worth</li>
-            <li>Set and monitor financial goals</li>
-            <li>View stock and cryptocurrency price data</li>
-            <li>Visualise your financial portfolio breakdown</li>
-            <li>Access home screen widgets and Apple Watch complications</li>
-        </ul>
-        <div class="warning-box">
-            <p><strong>Closer is NOT a financial advisor.</strong> The App is a personal tracking tool only and does not
-                provide financial, investment, tax, or legal advice.</p>
-        </div>
-
-        <h2>3. User Accounts &amp; Data</h2>
-        <p>Closer does not require you to create an account. All data you enter is stored locally on your device. If you
-            enable the optional iCloud sync feature (Pro), your data is stored in your personal Apple iCloud account.
-        </p>
-        <p>You are solely responsible for:</p>
-        <ul>
-            <li>The accuracy of data you enter into the App</li>
-            <li>Maintaining backups of your data</li>
-            <li>Securing access to your device</li>
-        </ul>
-
-        <h2>4. Subscriptions &amp; In-App Purchases</h2>
-        <p>Closer offers a free version with core features and a Pro upgrade available as an in-app purchase.</p>
-
-        <h3>Pro Features Include:</h3>
-        <ul>
-            <li>iCloud backup and sync across devices</li>
-            <li>Multiple financial goals</li>
-            <li>Home screen widgets</li>
-            <li>Apple Watch app and complications</li>
-            <li>Biometric lock (Face ID / Touch ID)</li>
-        </ul>
-
-        <h3>Payment Terms:</h3>
-        <ul>
-            <li>Pro is available as a <strong>one-time purchase</strong></li>
-            <li>Payment is charged to your Apple ID account at confirmation of purchase</li>
-            <li>All purchases are processed through the Apple App Store and are subject to <a
-                    href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank"
-                    rel="noopener">Apple's Standard EULA</a></li>
-        </ul>
-
-        <h3>Refunds:</h3>
-        <p>Refund requests are handled by Apple. To request a refund, visit <a href="https://reportaproblem.apple.com"
-                target="_blank" rel="noopener">reportaproblem.apple.com</a>.</p>
-
-        <h2>5. Third-Party Data</h2>
-        <p>The App displays stock and cryptocurrency price data provided by third-party services (Finnhub and
-            CoinGecko). This data:</p>
-        <ul>
-            <li>May be delayed or inaccurate</li>
-            <li>Is provided for informational purposes only</li>
-            <li>Should not be relied upon for making investment decisions</li>
-            <li>Is subject to the terms and availability of the third-party providers</li>
-        </ul>
-
-        <h2>6. Acceptable Use</h2>
-        <p>You agree not to:</p>
-        <ul>
-            <li>Reverse engineer, decompile, or disassemble the App</li>
-            <li>Use the App for any unlawful purpose</li>
-            <li>Attempt to gain unauthorised access to any part of the App or its systems</li>
-            <li>Redistribute or resell the App or any part of it</li>
-        </ul>
-
-        <h2>7. Intellectual Property</h2>
-        <p>The App, including its design, code, graphics, and content, is owned by George Parker and is protected by
-            intellectual property laws. You are granted a limited, non-exclusive, non-transferable licence to use the
-            App for personal, non-commercial purposes.</p>
-
-        <h2>8. Disclaimer of Warranties</h2>
         <div class="info-box">
-            <p>The App is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of
-                any kind, either express or implied, including but not limited to:</p>
-            <ul>
-                <li>Merchantability or fitness for a particular purpose</li>
-                <li>Accuracy or reliability of any data or calculations</li>
-                <li>Uninterrupted or error-free operation</li>
-                <li>Compatibility with all devices or operating system versions</li>
-            </ul>
+            <p><strong>Please read these Terms carefully before using the App.</strong> By downloading, installing, or
+                using Closer, you agree to be bound by these Terms. If you do not agree, you must not use the App.</p>
         </div>
 
-        <h2>9. Limitation of Liability</h2>
-        <p>To the maximum extent permitted by applicable law, George Parker shall not be liable for any indirect,
-            incidental, special, consequential, or punitive damages, or any loss of profits, revenues, data, use,
-            goodwill, or other intangible losses resulting from:</p>
+        <nav class="toc">
+            <p class="toc-title">Contents</p>
+            <ol>
+                <li><a href="#definitions">Definitions</a></li>
+                <li><a href="#acceptance">Acceptance of Terms</a></li>
+                <li><a href="#description">Description of Service</a></li>
+                <li><a href="#eligibility">Eligibility</a></li>
+                <li><a href="#account">User Data &amp; Responsibility</a></li>
+                <li><a href="#iap">In-App Purchases</a></li>
+                <li><a href="#free-features">Free &amp; Pro Features</a></li>
+                <li><a href="#not-advice">No Financial Advice</a></li>
+                <li><a href="#third-party">Third-Party Data &amp; Services</a></li>
+                <li><a href="#ip">Intellectual Property</a></li>
+                <li><a href="#acceptable-use">Acceptable Use</a></li>
+                <li><a href="#disclaimer">Disclaimer of Warranties</a></li>
+                <li><a href="#liability">Limitation of Liability</a></li>
+                <li><a href="#indemnification">Indemnification</a></li>
+                <li><a href="#termination">Termination</a></li>
+                <li><a href="#force-majeure">Force Majeure</a></li>
+                <li><a href="#changes">Modifications to Terms</a></li>
+                <li><a href="#governing-law">Governing Law &amp; Disputes</a></li>
+                <li><a href="#severability">Severability</a></li>
+                <li><a href="#waiver">Waiver &amp; Assignment</a></li>
+                <li><a href="#entire">Entire Agreement</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ol>
+        </nav>
+
+        <h2 id="definitions">1. Definitions</h2>
+        <p>In these Terms of Service:</p>
         <ul>
-            <li>Your use or inability to use the App</li>
-            <li>Any errors, inaccuracies, or omissions in the content</li>
-            <li>Third-party API data including stock and cryptocurrency prices</li>
-            <li>Unauthorised access to or alteration of your data</li>
-            <li>Any financial decisions made based on information displayed in the App</li>
+            <li><strong>"App"</strong> means the Closer mobile application, including any updates, patches, and new
+                versions</li>
+            <li><strong>"Service"</strong> means the App and all related services, including widgets, Apple Watch
+                companions, complications, and iCloud synchronisation</li>
+            <li><strong>"Developer"</strong>, <strong>"we"</strong>, <strong>"our"</strong>, or <strong>"us"</strong>
+                refers to George Parker, the sole developer of the App</li>
+            <li><strong>"User"</strong>, <strong>"you"</strong>, or <strong>"your"</strong> refers to any person who
+                downloads, installs, or uses the App</li>
+            <li><strong>"Pro"</strong> refers to the premium upgrade available as an in-app purchase</li>
+            <li><strong>"Content"</strong> means all data, text, graphics, interfaces, and code within the App</li>
         </ul>
 
-        <h2>10. Indemnification</h2>
-        <p>You agree to indemnify and hold harmless George Parker from any claims, damages, losses, or expenses arising
-            from your use of the App or your violation of these Terms.</p>
+        <h2 id="acceptance">2. Acceptance of Terms</h2>
+        <p>By downloading, installing, accessing, or using the App, you confirm that:</p>
+        <ol>
+            <li>You have read, understood, and agree to be bound by these Terms</li>
+            <li>You have read and understood our <a href="../privacy/">Privacy Policy</a></li>
+            <li>You meet the eligibility requirements set out in Section 4</li>
+            <li>You accept that these Terms form a legally binding agreement between you and the Developer</li>
+        </ol>
+        <p>If you do not agree to any part of these Terms, you must immediately stop using and delete the App.</p>
 
-        <h2>11. Modifications to Terms</h2>
-        <p>We reserve the right to modify these Terms at any time. Changes will be effective upon updating the "Last
-            Updated" date. Your continued use of the App after any changes constitutes your acceptance of the new Terms.
-        </p>
+        <h2 id="description">3. Description of Service</h2>
+        <p>Closer is a personal net worth tracking application that enables you to:</p>
+        <ul>
+            <li>Manually track assets (savings, investments, property, cryptocurrency, and other valuables) and
+                liabilities (debts, loans, mortgages)</li>
+            <li>Calculate and visualise your net worth over time</li>
+            <li>Set and monitor financial goals with milestones</li>
+            <li>View indicative stock and cryptocurrency price data from third-party providers</li>
+            <li>Access widgets on your home screen, lock screen, and Apple Watch</li>
+            <li>Optionally sync data across your devices via iCloud (Pro feature)</li>
+        </ul>
 
-        <h2>12. Termination</h2>
-        <p>We may terminate or suspend your access to the App at any time, without prior notice, for conduct that we
-            believe violates these Terms or is harmful to other users or the App.</p>
+        <h2 id="eligibility">4. Eligibility</h2>
+        <p>You must be at least <strong>13 years of age</strong> (or the minimum age required in your jurisdiction) to
+            use the App. If you are under 18, you confirm that you have obtained consent from a parent or legal guardian
+            to use the App and that they have read and agreed to these Terms on your behalf.</p>
 
-        <h2>13. Governing Law</h2>
+        <h2 id="account">5. User Data &amp; Responsibility</h2>
+        <p>The App does not require account registration. All data is self-reported and stored locally on your device.
+            You are solely responsible for:</p>
+        <ul>
+            <li>The <strong>accuracy and completeness</strong> of all financial data you enter</li>
+            <li>Maintaining <strong>regular backups</strong> of your data (we recommend enabling iCloud Sync)</li>
+            <li><strong>Securing</strong> physical access to your device and enabling appropriate device-level security
+                (passcode, biometrics)</li>
+            <li>Any <strong>decisions</strong> you make based on data displayed within the App</li>
+        </ul>
+        <p>We are not responsible for any data loss resulting from device failure, theft, accidental deletion, software
+            updates, or any other cause.</p>
+
+        <h2 id="iap">6. In-App Purchases</h2>
+
+        <h3>6.1 Pro Upgrade</h3>
+        <p>The App offers a Pro upgrade as a <strong>one-time, non-consumable in-app purchase</strong>. This purchase
+            unlocks Pro features permanently for the purchasing Apple ID.</p>
+
+        <h3>6.2 Payment Processing</h3>
+        <ul>
+            <li>All payments are processed exclusively by <strong>Apple</strong> through the App Store</li>
+            <li>Payment is charged to the Apple ID used at the time of purchase confirmation</li>
+            <li>We do not collect, process, or store any payment information</li>
+            <li>Pricing is set in App Store Connect and may vary by region due to Apple's pricing tiers</li>
+        </ul>
+
+        <h3>6.3 Refunds</h3>
+        <p>All refund requests are handled by Apple in accordance with their policies. To request a refund, visit <a
+                href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>. We
+            do not process refunds directly.</p>
+
+        <h3>6.4 Restore Purchases</h3>
+        <p>If you reinstall the App or switch devices, you can restore your Pro purchase at no additional cost using the
+            "Restore Purchases" function within the App.</p>
+
+        <h3>6.5 Apple's Standard EULA</h3>
+        <p>In-app purchases are additionally governed by <a
+                href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank"
+                rel="noopener">Apple's Licensed Application End User Licence Agreement (Standard EULA)</a>.</p>
+
+        <h2 id="free-features">7. Free &amp; Pro Features</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Free</th>
+                    <th>Pro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Track assets &amp; liabilities</td>
+                    <td>✓</td>
+                    <td>✓</td>
+                </tr>
+                <tr>
+                    <td>Net worth pie chart</td>
+                    <td>✓</td>
+                    <td>✓</td>
+                </tr>
+                <tr>
+                    <td>Single financial goal</td>
+                    <td>✓</td>
+                    <td>✓</td>
+                </tr>
+                <tr>
+                    <td>Stock &amp; crypto price lookup</td>
+                    <td>✓</td>
+                    <td>✓</td>
+                </tr>
+                <tr>
+                    <td>Multiple goals</td>
+                    <td>—</td>
+                    <td>✓</td>
+                </tr>
+                <tr>
+                    <td>iCloud backup &amp; sync</td>
+                    <td>—</td>
+                    <td>✓</td>
+                </tr>
+                <tr>
+                    <td>Home &amp; Lock screen widgets</td>
+                    <td>—</td>
+                    <td>✓</td>
+                </tr>
+                <tr>
+                    <td>Apple Watch app &amp; complications</td>
+                    <td>—</td>
+                    <td>✓</td>
+                </tr>
+                <tr>
+                    <td>Biometric lock (Face ID / Touch ID)</td>
+                    <td>—</td>
+                    <td>✓</td>
+                </tr>
+                <tr>
+                    <td>Data export</td>
+                    <td>—</td>
+                    <td>✓</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>We reserve the right to modify, add, or remove features in future updates. Pro users will not lose access to
+            features that were available at the time of purchase.</p>
+
+        <h2 id="not-advice">8. No Financial Advice</h2>
+        <div class="warning-box">
+            <p><strong>⚠️ IMPORTANT: Closer is NOT a regulated financial service and does NOT provide financial
+                    advice.</strong></p>
+            <p>The App is not authorised or regulated by the Financial Conduct Authority (FCA), the Securities and
+                Exchange Commission (SEC), or any other financial regulatory body in any jurisdiction.</p>
+        </div>
+        <p>You expressly acknowledge and agree that:</p>
+        <ol>
+            <li>The App is a <strong>personal tracking tool only</strong> — it does not provide financial, investment,
+                tax, legal, or accounting advice</li>
+            <li>No information displayed in the App constitutes a recommendation to buy, sell, hold, or otherwise deal
+                in any financial instrument, security, cryptocurrency, or asset</li>
+            <li>All financial data in the App is <strong>self-reported by you</strong> and we make no warranties
+                regarding its accuracy</li>
+            <li>Stock and cryptocurrency prices are <strong>indicative only</strong>, sourced from third-party APIs, may
+                be delayed up to 24 hours, and may contain errors</li>
+            <li>You must seek advice from a <strong>qualified, regulated financial adviser</strong> before making any
+                financial decisions</li>
+            <li>The Developer is <strong>not responsible</strong> for any financial decisions you make based on
+                information displayed in the App</li>
+        </ol>
+
+        <h2 id="third-party">9. Third-Party Data &amp; Services</h2>
+        <p>The App displays market data from third-party providers (<a href="https://finnhub.io" target="_blank"
+                rel="noopener">Finnhub</a> and <a href="https://www.coingecko.com" target="_blank"
+                rel="noopener">CoinGecko</a>). You acknowledge that:</p>
+        <ul>
+            <li>Third-party data is provided <strong>"as is"</strong> without any warranty of accuracy, timeliness, or
+                completeness</li>
+            <li>Prices may be <strong>delayed, incorrect, or unavailable</strong> at any time</li>
+            <li>Data availability depends on the third-party providers and may be interrupted or discontinued without
+                notice</li>
+            <li>We have no control over, and assume no responsibility for, third-party data quality or availability</li>
+            <li>You should independently verify any market data before making financial decisions</li>
+        </ul>
+
+        <h2 id="ip">10. Intellectual Property</h2>
+        <p>All intellectual property rights in the App — including but not limited to its source code, design, graphics,
+            icons, user interface, animations, text, and documentation — are owned by George Parker and are protected by
+            applicable copyright, trade mark, and intellectual property laws.</p>
+        <p>You are granted a <strong>limited, non-exclusive, non-transferable, revocable licence</strong> to use the App
+            on devices you own or control, solely for personal, non-commercial purposes, subject to these Terms and the
+            Apple Standard EULA.</p>
+        <p>You may not:</p>
+        <ul>
+            <li>Copy, modify, adapt, translate, or create derivative works based on the App</li>
+            <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the App</li>
+            <li>Remove, alter, or obscure any copyright, trade mark, or other proprietary notices</li>
+            <li>Distribute, sublicence, lease, rent, or lend the App to any third party</li>
+            <li>Use any automated system to access or interact with the App</li>
+        </ul>
+
+        <h2 id="acceptable-use">11. Acceptable Use</h2>
+        <p>You agree to use the App only for lawful purposes. You shall not use the App:</p>
+        <ul>
+            <li>In any way that violates applicable local, national, or international law or regulation</li>
+            <li>For any fraudulent purpose, or in connection with money laundering or terrorist financing</li>
+            <li>To attempt to gain unauthorised access to the App, its underlying systems, or any connected networks
+            </li>
+            <li>To interfere with or disrupt the integrity or performance of the App or third-party APIs</li>
+            <li>To transmit any malware, viruses, or harmful code</li>
+        </ul>
+
+        <h2 id="disclaimer">12. Disclaimer of Warranties</h2>
+        <div class="info-box">
+            <p>To the maximum extent permitted by applicable law, the App is provided <strong>"AS IS"</strong> and
+                <strong>"AS AVAILABLE"</strong> without any representations or warranties of any kind, whether express,
+                implied, or statutory.</p>
+        </div>
+        <p>The Developer expressly disclaims all warranties, including but not limited to:</p>
+        <ul>
+            <li><strong>Merchantability</strong> — that the App is fit for commercial or any particular purpose</li>
+            <li><strong>Fitness for purpose</strong> — that the App will meet your specific requirements or expectations
+            </li>
+            <li><strong>Accuracy</strong> — that any data, calculations, or information displayed will be accurate,
+                complete, or current</li>
+            <li><strong>Reliability</strong> — that the App will operate without interruption, errors, or bugs</li>
+            <li><strong>Compatibility</strong> — that the App will function on all devices, operating system versions,
+                or configurations</li>
+            <li><strong>Security</strong> — that the App or your data will be entirely secure from all threats (though
+                we implement reasonable security measures)</li>
+        </ul>
+        <p>No advice or information, whether oral or written, obtained from the Developer or through the App, shall
+            create any warranty not expressly stated in these Terms.</p>
+
+        <h2 id="liability">13. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by applicable law, the Developer shall not be liable for any:</p>
+        <ul>
+            <li><strong>Indirect, incidental, special, consequential, or punitive damages</strong></li>
+            <li><strong>Loss of profits, revenue, data, business, or anticipated savings</strong></li>
+            <li><strong>Loss of goodwill or reputation</strong></li>
+            <li><strong>Cost of procuring substitute services</strong></li>
+        </ul>
+        <p>arising out of or in connection with:</p>
+        <ul>
+            <li>Your use of, or inability to use, the App</li>
+            <li>Any errors, inaccuracies, or omissions in App content, calculations, or displayed data</li>
+            <li>Third-party API data, including stock and cryptocurrency prices</li>
+            <li>Unauthorised access to, alteration of, or loss of your data</li>
+            <li>Any financial decisions you make based on information displayed in the App</li>
+            <li>Interruption, suspension, or cessation of the Service</li>
+            <li>Bugs, viruses, or other harmful code transmitted through the App</li>
+        </ul>
+        <p>In any event, the Developer's total aggregate liability to you for all claims arising from or related to the
+            App shall not exceed the amount you paid for the App or its in-app purchases in the twelve (12) months
+            preceding the event giving rise to the claim, or <strong>£50 (fifty pounds sterling)</strong>, whichever is
+            greater.</p>
+
+        <h3>Consumer Rights Preservation</h3>
+        <div class="highlight-box">
+            <p><strong>Nothing in these Terms shall exclude or limit liability for:</strong></p>
+            <ul>
+                <li>Death or personal injury caused by negligence</li>
+                <li>Fraud or fraudulent misrepresentation</li>
+                <li>Any liability which cannot be excluded or limited under the Consumer Rights Act 2015 or other
+                    applicable mandatory consumer protection legislation</li>
+            </ul>
+            <p>Your statutory rights as a consumer are not affected by these Terms.</p>
+        </div>
+
+        <h2 id="indemnification">14. Indemnification</h2>
+        <p>You agree to defend, indemnify, and hold harmless the Developer from and against any and all claims, damages,
+            obligations, losses, liabilities, costs, or expenses (including reasonable legal fees) arising from:</p>
+        <ol>
+            <li>Your use of the App</li>
+            <li>Your violation of these Terms</li>
+            <li>Your violation of any applicable law or regulation</li>
+            <li>Your violation of any third party's rights</li>
+        </ol>
+        <p>This indemnification obligation shall survive termination of these Terms.</p>
+
+        <h2 id="termination">15. Termination</h2>
+        <p>We may suspend or terminate your access to the App at any time, without prior notice, if we reasonably
+            believe you have violated these Terms. Upon termination:</p>
+        <ul>
+            <li>Your licence to use the App is immediately revoked</li>
+            <li>You must cease all use of the App and delete it from your devices</li>
+            <li>Sections 8, 10, 12, 13, 14, 18, and 19 shall survive termination</li>
+        </ul>
+        <p>You may terminate your use at any time by deleting the App. Termination does not entitle you to a refund of
+            any in-app purchases.</p>
+
+        <h2 id="force-majeure">16. Force Majeure</h2>
+        <p>The Developer shall not be liable for any failure or delay in performance arising from causes beyond our
+            reasonable control, including but not limited to: acts of God, natural disasters, pandemic, epidemic, war,
+            terrorism, civil unrest, government action, power or internet failure, or disruption of third-party services
+            (including Apple, Finnhub, or CoinGecko).</p>
+
+        <h2 id="changes">17. Modifications to Terms</h2>
+        <p>We reserve the right to modify these Terms at any time. When we do:</p>
+        <ul>
+            <li>The "Last Updated" date at the top will be revised</li>
+            <li>Material changes may be communicated through an in-app notification or App Store release notes</li>
+            <li>Your continued use of the App after changes are posted constitutes your acceptance of the revised Terms
+            </li>
+        </ul>
+        <p>If you disagree with any changes, you must stop using the App and delete it from your devices.</p>
+
+        <h2 id="governing-law">18. Governing Law &amp; Dispute Resolution</h2>
         <p>These Terms shall be governed by and construed in accordance with the laws of <strong>England and
-                Wales</strong>, without regard to its conflict of law provisions.</p>
+                Wales</strong>, without regard to conflict of law provisions.</p>
+        <p>Any disputes arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction
+            of the courts of England and Wales. However, this does not affect your statutory right, as a consumer, to
+            bring proceedings in the courts of your country of residence.</p>
+        <p>Before initiating formal proceedings, both parties agree to first attempt to resolve any dispute informally
+            by contacting <a href="mailto:closerapp@georgeparker.dev">closerapp@georgeparker.dev</a>. We will make
+            reasonable efforts to resolve your concern within 30 days.</p>
 
-        <h2>14. Severability</h2>
-        <p>If any provision of these Terms is found to be unenforceable, the remaining provisions shall continue in full
-            force and effect.</p>
+        <h2 id="severability">19. Severability</h2>
+        <p>If any provision of these Terms is found to be unlawful, void, or unenforceable by a court of competent
+            jurisdiction, that provision shall be deemed severed from these Terms and shall not affect the validity or
+            enforceability of the remaining provisions, which shall continue in full force and effect.</p>
 
-        <h2>15. Contact Us</h2>
-        <p>If you have any questions about these Terms, please contact us at:</p>
-        <p><strong>Email:</strong> <a href="mailto:closerapp@georgeparker.dev">closerapp@georgeparker.dev</a></p>
+        <h2 id="waiver">20. Waiver &amp; Assignment</h2>
+        <p>The failure of the Developer to enforce any right or provision of these Terms shall not constitute a waiver
+            of such right or provision. Any waiver must be in writing and signed by the Developer.</p>
+        <p>You may not assign, transfer, or sublicence your rights or obligations under these Terms without our prior
+            written consent. We may freely assign our rights and obligations under these Terms.</p>
 
-        <h2>16. Entire Agreement</h2>
-        <p>These Terms, together with our <a href="../privacy/">Privacy Policy</a>, constitute the entire agreement
-            between you and George Parker regarding the use of the App.</p>
+        <h2 id="entire">21. Entire Agreement</h2>
+        <p>These Terms, together with our <a href="../privacy/">Privacy Policy</a> and <a
+                href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank"
+                rel="noopener">Apple's Standard EULA</a>, constitute the entire agreement between you and the Developer
+            regarding the use of the App. They supersede all prior or contemporaneous communications, proposals, and
+            agreements, whether oral or written.</p>
+
+        <h2 id="contact">22. Contact Us</h2>
+        <p>If you have any questions, concerns, or complaints about these Terms, please contact:</p>
+        <div class="info-box">
+            <p><strong>George Parker</strong></p>
+            <p><strong>Email:</strong> <a href="mailto:closerapp@georgeparker.dev">closerapp@georgeparker.dev</a></p>
+            <p>We aim to respond to all enquiries within <strong>30 days</strong>.</p>
+        </div>
     </main>
 
     <footer class="footer">
         <p>&copy; 2026 George Parker. All rights reserved.</p>
-        <p style="margin-top: 0.5rem;"><a href="../privacy/">Privacy Policy</a></p>
+        <p style="margin-top: 0.5rem;"><a href="../privacy/">Privacy Policy</a> &nbsp;&middot;&nbsp; <a
+                href="../">Home</a></p>
     </footer>
 
 </body>

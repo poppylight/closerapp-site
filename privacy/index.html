@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — Closer</title>
-    <meta name="description" content="Privacy Policy for Closer - Net Worth Tracker. Learn how we protect your data and respect your privacy.">
+    <meta name="description"
+        content="Privacy Policy for Closer - Net Worth Tracker. Learn how we protect your data and respect your privacy under UK GDPR and international data protection law.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         :root {
             --bg: #0a0a0f;
@@ -20,6 +28,8 @@
             --text-secondary: #9898a8;
             --accent: #34d399;
             --accent-dim: rgba(52, 211, 153, 0.12);
+            --warning: rgba(245, 158, 11, 0.08);
+            --warning-border: rgba(245, 158, 11, 0.2);
         }
 
         body {
@@ -46,6 +56,12 @@
             margin: 0 auto;
             display: flex;
             align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
             gap: 0.75rem;
         }
 
@@ -67,6 +83,18 @@
             font-weight: 600;
             font-size: 0.95rem;
             letter-spacing: -0.01em;
+        }
+
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--accent);
         }
 
         .container {
@@ -92,6 +120,56 @@
             margin-bottom: 2.5rem;
             padding-bottom: 2rem;
             border-bottom: 1px solid var(--border);
+        }
+
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .toc-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc;
+            padding: 0;
+            margin: 0;
+            columns: 2;
+            column-gap: 1.5rem;
+        }
+
+        .toc li {
+            counter-increment: toc;
+            margin-bottom: 0.35rem;
+            break-inside: avoid;
+        }
+
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: var(--accent);
+        }
+
+        .toc a::before {
+            content: counter(toc) ". ";
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.8rem;
         }
 
         h2 {
@@ -152,7 +230,9 @@
             transition: opacity 0.2s;
         }
 
-        a:hover { opacity: 0.8; }
+        a:hover {
+            opacity: 0.8;
+        }
 
         .highlight-box {
             background: var(--accent-dim);
@@ -162,8 +242,12 @@
             margin: 1.25rem 0;
         }
 
-        .highlight-box p {
+        .highlight-box p,
+        .highlight-box ul li {
             color: var(--text);
+        }
+
+        .highlight-box p:last-child {
             margin-bottom: 0;
         }
 
@@ -173,6 +257,49 @@
             border-radius: 12px;
             padding: 1.25rem 1.5rem;
             margin: 1.25rem 0;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .warning-box {
+            background: var(--warning);
+            border: 1px solid var(--warning-border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.25rem 0;
+        }
+
+        .warning-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.25rem 0;
+            font-size: 0.9rem;
+        }
+
+        thead th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        tbody td {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        tbody tr:hover {
+            background: var(--surface);
         }
 
         .footer {
@@ -191,162 +318,473 @@
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 1.5rem; }
-            .container { padding: 2rem 1.25rem 3rem; }
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 2rem 1.25rem 3rem;
+            }
+
+            .toc ol {
+                columns: 1;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+
+            thead th,
+            tbody td {
+                padding: 0.5rem 0.65rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<header class="header">
-    <div class="header-inner">
-        <div class="logo">C</div>
-        <span class="header-text">Closer — Privacy Policy</span>
-    </div>
-</header>
+    <header class="header">
+        <div class="header-inner">
+            <div class="header-left">
+                <div class="logo">C</div>
+                <span class="header-text">Closer</span>
+            </div>
+            <nav class="header-nav">
+                <a href="../terms/">Terms of Service</a>
+            </nav>
+        </div>
+    </header>
 
-<main class="container">
-    <h1>Privacy Policy</h1>
-    <p class="last-updated">Last Updated: February 7, 2026</p>
+    <main class="container">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Effective Date: 7 February 2026 &nbsp;|&nbsp; Last Updated: 7 February 2026</p>
 
-    <h2>Introduction</h2>
-    <p>Closer ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by Closer.</p>
-    <p>This Privacy Policy applies to our mobile application Closer and its associated services (collectively, our "Service").</p>
+        <nav class="toc">
+            <p class="toc-title">Contents</p>
+            <ol>
+                <li><a href="#data-controller">Data Controller</a></li>
+                <li><a href="#scope">Scope of This Policy</a></li>
+                <li><a href="#info-collect">Information We Collect</a></li>
+                <li><a href="#info-not-collect">Information We Do Not Collect</a></li>
+                <li><a href="#legal-basis">Legal Basis for Processing</a></li>
+                <li><a href="#storage">How Your Data Is Stored</a></li>
+                <li><a href="#sharing">Data Sharing &amp; Disclosure</a></li>
+                <li><a href="#third-party">Third-Party Services</a></li>
+                <li><a href="#tracking">Tracking &amp; Cookies</a></li>
+                <li><a href="#international">International Data Transfers</a></li>
+                <li><a href="#retention">Data Retention</a></li>
+                <li><a href="#your-rights">Your Rights (UK GDPR)</a></li>
+                <li><a href="#children">Children's Privacy</a></li>
+                <li><a href="#security">Security Measures</a></li>
+                <li><a href="#disclaimer">Financial Disclaimer</a></li>
+                <li><a href="#liability">Limitation of Liability</a></li>
+                <li><a href="#changes">Changes to This Policy</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ol>
+        </nav>
 
-    <h2>Information We Collect</h2>
+        <h2 id="data-controller">1. Data Controller</h2>
+        <div class="info-box">
+            <p><strong>Data Controller:</strong> George Parker (sole developer, acting as a sole trader)</p>
+            <p><strong>Email:</strong> <a href="mailto:closerapp@georgeparker.dev">closerapp@georgeparker.dev</a></p>
+            <p><strong>Jurisdiction:</strong> England and Wales, United Kingdom</p>
+        </div>
+        <p>For the purposes of the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018, the
+            Data Controller is George Parker. This means George Parker determines the purposes and means of processing
+            your personal data in connection with the App.</p>
 
-    <h3>Information You Provide</h3>
-    <ul>
-        <li><strong>Financial Data:</strong> Asset names, values, and categories you enter to track your net worth</li>
-        <li><strong>Goal Information:</strong> Your financial goals, target amounts, and deadlines</li>
-        <li><strong>Preferences:</strong> Currency selection, display preferences, and notification settings</li>
-    </ul>
+        <h2 id="scope">2. Scope of This Policy</h2>
+        <p>This Privacy Policy applies to the Closer mobile application ("App"), including all associated services such
+            as widgets, Apple Watch companions, complications, and optional iCloud synchronisation features
+            (collectively, the "Service"). By downloading, installing, or using the Service, you acknowledge that you
+            have read and understood this Privacy Policy.</p>
 
-    <h3>Information We Do NOT Collect</h3>
-    <div class="highlight-box">
+        <h2 id="info-collect">3. Information We Collect</h2>
+        <p>We collect only the minimum data necessary to provide the Service. All data categories are listed below:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Data Category</th>
+                    <th>Examples</th>
+                    <th>Storage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Financial Data</strong></td>
+                    <td>Asset names, values, categories, debt amounts</td>
+                    <td>On-device only</td>
+                </tr>
+                <tr>
+                    <td><strong>Goal Data</strong></td>
+                    <td>Target amounts, deadlines, milestones achieved</td>
+                    <td>On-device only</td>
+                </tr>
+                <tr>
+                    <td><strong>Preferences</strong></td>
+                    <td>Currency, display settings, notification preferences</td>
+                    <td>On-device only</td>
+                </tr>
+                <tr>
+                    <td><strong>Anonymous Analytics</strong></td>
+                    <td>Feature usage counts, app opens (no personal identifiers)</td>
+                    <td>TelemetryDeck (EU servers)</td>
+                </tr>
+                <tr>
+                    <td><strong>Purchase Data</strong></td>
+                    <td>Pro upgrade status</td>
+                    <td>Apple (App Store)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="info-not-collect">4. Information We Do Not Collect</h2>
+        <div class="highlight-box">
+            <p><strong>We explicitly do NOT collect, store, or process any of the following:</strong></p>
+            <ul>
+                <li>Your real name, email address, phone number, or physical address</li>
+                <li>Bank account numbers, sort codes, credit/debit card details, or any payment credentials</li>
+                <li>Login credentials for any financial institution</li>
+                <li>Location data (GPS, IP-based geolocation, or similar)</li>
+                <li>Device identifiers (IDFA, IDFV) for tracking or advertising purposes</li>
+                <li>Browsing history, contacts, photos, or any data outside the App</li>
+                <li>Biometric data (Face ID / Touch ID processing is handled entirely by Apple's Secure Enclave)</li>
+            </ul>
+        </div>
+        <p>The App does <strong>not</strong> connect to your bank, building society, or any financial institution. All
+            financial data within the App is manually entered by you.</p>
+
+        <h2 id="legal-basis">5. Legal Basis for Processing (UK GDPR, Article 6)</h2>
+        <p>We process your data under the following lawful bases:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Purpose</th>
+                    <th>Legal Basis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Providing core App functionality</td>
+                    <td><strong>Contract performance</strong> — necessary to deliver the Service you requested (Art.
+                        6(1)(b))</td>
+                </tr>
+                <tr>
+                    <td>iCloud Sync (optional)</td>
+                    <td><strong>Consent</strong> — you explicitly enable this feature (Art. 6(1)(a))</td>
+                </tr>
+                <tr>
+                    <td>Anonymous analytics</td>
+                    <td><strong>Legitimate interest</strong> — to improve the App, with minimal privacy impact (Art.
+                        6(1)(f))</td>
+                </tr>
+                <tr>
+                    <td>Processing in-app purchases</td>
+                    <td><strong>Contract performance</strong> — necessary to fulfil the purchase (Art. 6(1)(b))</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="storage">6. How Your Data Is Stored</h2>
+
+        <h3>6.1 Local Storage (Default)</h3>
+        <p>All financial data you enter is stored <strong>exclusively on your device</strong> using Apple's secure
+            storage frameworks (UserDefaults with App Group containers, and Keychain Services for sensitive data such as
+            API keys). We have <strong>no access</strong> to this data — it never leaves your device unless you
+            explicitly enable iCloud Sync.</p>
+
+        <h3>6.2 Optional iCloud Sync (Pro Feature)</h3>
+        <p>If you enable iCloud Sync, your data is transmitted to and stored in <strong>your personal Apple iCloud
+                account</strong> via Apple's CloudKit framework. Key points:</p>
         <ul>
-            <li>We do <strong>NOT</strong> collect your real name, email address, or contact information</li>
-            <li>We do <strong>NOT</strong> collect bank account numbers, credit card details, or login credentials</li>
-            <li>We do <strong>NOT</strong> connect to your bank or financial institutions</li>
-            <li>We do <strong>NOT</strong> track your location</li>
-            <li>We use <strong>privacy-friendly analytics only</strong> (see Third-Party Services below)</li>
+            <li>Data is encrypted <strong>in transit</strong> (TLS 1.2+) and <strong>at rest</strong> (AES-256)</li>
+            <li>Data resides in <strong>your</strong> iCloud account — we have no server-side access</li>
+            <li>iCloud Sync is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank"
+                    rel="noopener">Apple's Privacy Policy</a></li>
+            <li>You can disable sync or delete synced data at any time from iOS Settings</li>
+            <li>No personal identifiers (names, emails) are stored alongside your financial data</li>
         </ul>
-    </div>
 
-    <h2>How Your Data is Stored</h2>
+        <h3>6.3 Keychain &amp; Secure Storage</h3>
+        <p>Sensitive application data (e.g., API key obfuscation seeds) is stored using Apple's Keychain Services, which
+            provides hardware-backed encryption via the device's Secure Enclave where available.</p>
 
-    <h3>Local Storage Only</h3>
-    <p>All your financial data is stored <strong>locally on your device</strong> using Apple's secure storage mechanisms. We do not have access to your data, and it never leaves your device unless you explicitly choose to back it up.</p>
-
-    <h3>Optional iCloud Sync (Pro Feature)</h3>
-    <p>If you enable iCloud sync, your data is stored in your personal iCloud account using Apple's CloudKit service. This data is:</p>
-    <ul>
-        <li>Encrypted in transit and at rest</li>
-        <li>Stored in <strong>YOUR</strong> iCloud account, not ours</li>
-        <li>Subject to Apple's privacy policy</li>
-        <li>Accessible only to you</li>
-    </ul>
-
-    <h2>Data Sharing</h2>
-    <div class="highlight-box">
-        <p><strong>We do not sell, trade, or share your personal information with third parties.</strong></p>
-    </div>
-    <p>Your data may only be shared in these limited circumstances:</p>
-    <ul>
-        <li><strong>With your consent:</strong> If you explicitly choose to share your progress (e.g., using the Share feature)</li>
-        <li><strong>Legal requirements:</strong> If required by law or to protect our rights</li>
-    </ul>
-
-    <h2>Third-Party Services</h2>
-
-    <h3>Apple Services</h3>
-    <p>Our app uses the following Apple services:</p>
-    <ul>
-        <li><strong>App Store:</strong> For processing in-app purchases</li>
-        <li><strong>iCloud</strong> (optional): For data backup and sync</li>
-        <li><strong>WidgetKit:</strong> For home screen widgets</li>
-        <li><strong>WatchKit:</strong> For Apple Watch functionality</li>
-    </ul>
-    <p>These services are governed by <a href="https://www.apple.com/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</p>
-
-    <h3>Analytics (TelemetryDeck)</h3>
-    <p>We use TelemetryDeck for privacy-friendly analytics. TelemetryDeck:</p>
-    <ul>
-        <li>Does <strong>NOT</strong> collect personal information</li>
-        <li>Does <strong>NOT</strong> use cookies or track you across apps</li>
-        <li>Only collects anonymous usage data (e.g., which features are used)</li>
-        <li>Is GDPR compliant by design</li>
-    </ul>
-    <p>Learn more: <a href="https://telemetrydeck.com/privacy/" target="_blank" rel="noopener">TelemetryDeck Privacy</a></p>
-
-    <h3>Stock &amp; Crypto Prices</h3>
-    <p>We use third-party APIs to fetch live prices:</p>
-    <ul>
-        <li><strong>Finnhub</strong> for stock prices</li>
-        <li><strong>CoinGecko</strong> for cryptocurrency prices</li>
-    </ul>
-    <p>These services only receive the stock/crypto symbols you search for. No personal data is sent.</p>
-
-    <h2>Children's Privacy</h2>
-    <p>Our Service is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.</p>
-
-    <h2>Your Rights</h2>
-    <p>You have the right to:</p>
-    <ul>
-        <li><strong>Access:</strong> View all data stored in the app</li>
-        <li><strong>Delete:</strong> Delete all your data by uninstalling the app</li>
-        <li><strong>Export:</strong> Export your data (Pro feature)</li>
-        <li><strong>Disable Sync:</strong> Turn off iCloud sync at any time</li>
-    </ul>
-
-    <h2>Data Retention</h2>
-    <p>Your data is retained on your device until you delete it or uninstall the app. If you use iCloud sync, your data remains in your iCloud account until you delete it.</p>
-
-    <h2>Security</h2>
-    <p>We implement appropriate technical measures to protect your data:</p>
-    <ul>
-        <li>Local data is stored using Apple's secure UserDefaults and Keychain</li>
-        <li>Optional Face ID / Touch ID protection</li>
-        <li>iCloud data is encrypted using Apple's security standards</li>
-    </ul>
-
-    <h2>Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by updating the "Last Updated" date at the top of this policy.</p>
-
-    <h2>Disclaimer</h2>
-    <div class="info-box">
-        <p><strong>Closer is not a financial advisor.</strong> This app is a personal tracking tool only.</p>
+        <h2 id="sharing">7. Data Sharing &amp; Disclosure</h2>
+        <div class="highlight-box">
+            <p><strong>We do not sell, rent, trade, or otherwise share your personal data with any third party for
+                    marketing, advertising, or data-brokering purposes. Full stop.</strong></p>
+        </div>
+        <p>Your data may only be disclosed in these strictly limited circumstances:</p>
         <ul>
-            <li>The app does <strong>NOT</strong> provide financial, investment, tax, or legal advice</li>
-            <li>All data you enter is self-reported and we make no guarantees about accuracy</li>
-            <li>Stock and cryptocurrency prices are provided by third-party APIs and may be delayed or inaccurate</li>
-            <li>You should consult a qualified financial advisor before making any financial decisions</li>
-            <li>We are <strong>NOT</strong> responsible for any financial decisions you make based on information displayed in this app</li>
+            <li><strong>At your direction:</strong> If you use the App's Share feature to voluntarily share a progress
+                card</li>
+            <li><strong>Legal obligation:</strong> If required by law, court order, regulatory authority, or to protect
+                our legal rights under applicable law</li>
+            <li><strong>Vital interests:</strong> To protect someone's life in an emergency (Art. 6(1)(d) UK GDPR)</li>
         </ul>
-    </div>
-    <p><strong>Use of this app is at your own risk.</strong> To the fullest extent permitted by law, we disclaim all warranties and shall not be liable for any damages arising from your use of this app.</p>
 
-    <h2>Limitation of Liability</h2>
-    <p>To the maximum extent permitted by applicable law, in no event shall the developer be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from:</p>
-    <ul>
-        <li>Your use or inability to use the app</li>
-        <li>Any errors or inaccuracies in the content</li>
-        <li>Third-party API data (stock prices, cryptocurrency values)</li>
-        <li>Unauthorized access to your data</li>
-    </ul>
+        <h2 id="third-party">8. Third-Party Services</h2>
+        <p>The App integrates with the following third-party services. Each operates independently under its own privacy
+            policy:</p>
 
-    <h2>Contact Us</h2>
-    <p>If you have questions about this Privacy Policy, please contact us at:</p>
-    <p><strong>Email:</strong> <a href="mailto:closerapp@georgeparker.dev">closerapp@georgeparker.dev</a></p>
+        <h3>8.1 Apple Platform Services</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Purpose</th>
+                    <th>Data Shared</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>App Store / StoreKit</td>
+                    <td>In-app purchase processing</td>
+                    <td>Transaction receipts (handled by Apple)</td>
+                </tr>
+                <tr>
+                    <td>CloudKit (optional)</td>
+                    <td>Cross-device data sync</td>
+                    <td>Your financial data (stored in your iCloud)</td>
+                </tr>
+                <tr>
+                    <td>WidgetKit</td>
+                    <td>Home/Lock screen widgets</td>
+                    <td>Display data (on-device only)</td>
+                </tr>
+                <tr>
+                    <td>WatchKit</td>
+                    <td>Apple Watch app &amp; complications</td>
+                    <td>Display data (on-device only)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>All Apple services are governed by <a href="https://www.apple.com/legal/privacy/" target="_blank"
+                rel="noopener">Apple's Privacy Policy</a>.</p>
 
-    <h2>Consent</h2>
-    <p>By using our Service, you consent to this Privacy Policy.</p>
-</main>
+        <h3>8.2 TelemetryDeck (Analytics)</h3>
+        <p>We use <a href="https://telemetrydeck.com" target="_blank" rel="noopener">TelemetryDeck</a> for
+            privacy-respecting, anonymous analytics. TelemetryDeck:</p>
+        <ul>
+            <li>Collects <strong>no personal data</strong> — no names, emails, IPs, or device identifiers</li>
+            <li>Uses <strong>no cookies</strong> and does <strong>not track</strong> users across apps or websites</li>
+            <li>Processes data on <strong>EU-based servers</strong> (GDPR-compliant)</li>
+            <li>Provides only aggregate, anonymous statistics (e.g., "feature X was used 100 times this week")</li>
+            <li>Is certified GDPR-compliant by design</li>
+        </ul>
+        <p>See: <a href="https://telemetrydeck.com/privacy/" target="_blank" rel="noopener">TelemetryDeck Privacy
+                Policy</a></p>
 
-<footer class="footer">
-    <p>&copy; 2026 George Parker. All rights reserved.</p>
-    <p style="margin-top: 0.5rem;"><a href="../terms/">Terms of Service</a></p>
-</footer>
+        <h3>8.3 Market Data APIs</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Provider</th>
+                    <th>Purpose</th>
+                    <th>Data Sent</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="https://finnhub.io" target="_blank" rel="noopener">Finnhub</a></td>
+                    <td>Stock/equity price lookup</td>
+                    <td>Stock ticker symbols only</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.coingecko.com" target="_blank" rel="noopener">CoinGecko</a></td>
+                    <td>Cryptocurrency price lookup</td>
+                    <td>Cryptocurrency identifiers only</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>No personal data, device identifiers, or user information</strong> is sent to these services. Only
+            the specific asset symbols you search for are transmitted via HTTPS.</p>
+
+        <h2 id="tracking">9. Tracking &amp; Cookies</h2>
+        <div class="highlight-box">
+            <p><strong>The App does not use cookies, tracking pixels, advertising SDKs, fingerprinting, or any form of
+                    cross-app or cross-site tracking technology.</strong></p>
+        </div>
+        <p>We do not participate in any advertising networks. The App contains no advertisements whatsoever.</p>
+
+        <h2 id="international">10. International Data Transfers</h2>
+        <p>Your financial data is stored locally on your device and, if iCloud Sync is enabled, within Apple's iCloud
+            infrastructure. Apple may process iCloud data in data centres globally. Such transfers are covered by
+            Apple's compliance with standard contractual clauses and applicable data protection frameworks.</p>
+        <p>Anonymous analytics data processed by TelemetryDeck is stored on EU-based servers. No international transfers
+            of personal data occur as TelemetryDeck does not collect personal data.</p>
+
+        <h2 id="retention">11. Data Retention</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data Type</th>
+                    <th>Retention Period</th>
+                    <th>Deletion Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>On-device financial data</td>
+                    <td>Until you delete it or uninstall the App</td>
+                    <td>Delete in-app or uninstall</td>
+                </tr>
+                <tr>
+                    <td>iCloud synced data</td>
+                    <td>Until you delete it from iCloud</td>
+                    <td>iOS Settings → iCloud → Manage Storage</td>
+                </tr>
+                <tr>
+                    <td>Net worth history</td>
+                    <td>Rolling 90-day window</td>
+                    <td>Automatically purged</td>
+                </tr>
+                <tr>
+                    <td>Anonymous analytics</td>
+                    <td>Aggregated, no personal data retained</td>
+                    <td>N/A (no personal data)</td>
+                </tr>
+                <tr>
+                    <td>Purchase records</td>
+                    <td>Managed by Apple</td>
+                    <td>Contact Apple Support</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="your-rights">12. Your Rights Under UK GDPR</h2>
+        <p>Under the UK General Data Protection Regulation and the Data Protection Act 2018, you have the following
+            rights. Since we store your data locally on your device and do not maintain a central database, most of
+            these rights are inherently satisfied:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Right</th>
+                    <th>How It Applies</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Access</strong> (Art. 15)</td>
+                    <td>All your data is visible directly in the App at all times</td>
+                </tr>
+                <tr>
+                    <td><strong>Rectification</strong> (Art. 16)</td>
+                    <td>You can edit any data directly in the App</td>
+                </tr>
+                <tr>
+                    <td><strong>Erasure</strong> (Art. 17)</td>
+                    <td>Delete data in-app, or uninstall to remove all local data</td>
+                </tr>
+                <tr>
+                    <td><strong>Restriction</strong> (Art. 18)</td>
+                    <td>You can disable features (e.g., iCloud Sync) at any time</td>
+                </tr>
+                <tr>
+                    <td><strong>Portability</strong> (Art. 20)</td>
+                    <td>Export your data via the App's export feature (Pro)</td>
+                </tr>
+                <tr>
+                    <td><strong>Objection</strong> (Art. 21)</td>
+                    <td>Contact us to object to any processing based on legitimate interest</td>
+                </tr>
+                <tr>
+                    <td><strong>Withdraw Consent</strong></td>
+                    <td>Disable iCloud Sync at any time; this does not affect prior processing</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>To exercise any of these rights, or if you have concerns about how your data is processed, contact us at <a
+                href="mailto:closerapp@georgeparker.dev">closerapp@georgeparker.dev</a>. We will respond within
+            <strong>30 days</strong> as required by law.</p>
+        <p>You also have the right to lodge a complaint with the <a href="https://ico.org.uk/make-a-complaint/"
+                target="_blank" rel="noopener">Information Commissioner's Office (ICO)</a>, the UK's supervisory
+            authority for data protection.</p>
+
+        <h2 id="children">13. Children's Privacy</h2>
+        <p>The App is not directed at children under the age of 13 (or under 16 in the UK/EEA for GDPR purposes). We do
+            not knowingly collect personal information from children. If you believe a child has provided data through
+            the App, please contact us immediately and we will take appropriate steps.</p>
+
+        <h2 id="security">14. Security Measures</h2>
+        <p>We implement industry-standard technical and organisational measures to protect your data:</p>
+        <ul>
+            <li><strong>Encryption at rest:</strong> Sensitive data stored using Apple's Keychain Services with
+                hardware-backed encryption</li>
+            <li><strong>Encryption in transit:</strong> All network requests use HTTPS (TLS 1.2 or later)</li>
+            <li><strong>API key protection:</strong> API keys are obfuscated using XOR encryption and stored in the
+                Keychain, never in plain text</li>
+            <li><strong>Biometric protection:</strong> Optional Face ID / Touch ID lock (processing handled by Apple's
+                Secure Enclave — biometric data never leaves your device)</li>
+            <li><strong>Privacy screen:</strong> App content is automatically hidden in the iOS app switcher to prevent
+                shoulder-surfing</li>
+            <li><strong>No remote servers:</strong> We do not operate servers that store your data, eliminating
+                server-side breach risk</li>
+            <li><strong>Debug safeguards:</strong> All diagnostic logging is disabled in production builds</li>
+        </ul>
+
+        <h2 id="disclaimer">15. Financial Disclaimer</h2>
+        <div class="warning-box">
+            <p><strong>⚠️ Closer is NOT a regulated financial service.</strong></p>
+            <p>The App is not authorised or regulated by the Financial Conduct Authority (FCA) or any other financial
+                regulatory body. It is a personal tracking tool only and does <strong>not</strong> constitute:</p>
+            <ul>
+                <li>Financial, investment, tax, legal, or accounting advice</li>
+                <li>A recommendation to buy, sell, or hold any security, cryptocurrency, or other financial instrument
+                </li>
+                <li>A substitute for professional financial planning or advice</li>
+            </ul>
+            <p>All financial data displayed — including stock and cryptocurrency prices — is provided by third-party
+                APIs for <strong>informational purposes only</strong>, may be delayed, and may contain inaccuracies. You
+                should always consult a qualified, FCA-regulated financial adviser before making financial decisions.
+            </p>
+            <p><strong>Use of this App is entirely at your own risk.</strong></p>
+        </div>
+
+        <h2 id="liability">16. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by applicable law (including the Consumer Rights Act 2015 where applicable),
+            George Parker shall not be liable for any indirect, incidental, special, consequential, or punitive damages,
+            or any loss of profits, revenues, data, use, goodwill, or other intangible losses resulting from:</p>
+        <ul>
+            <li>Your use of, or inability to use, the App</li>
+            <li>Any errors, inaccuracies, or omissions in App content or calculations</li>
+            <li>Third-party API data (including stock and cryptocurrency prices)</li>
+            <li>Unauthorised access to or alteration of your data</li>
+            <li>Any financial decisions made based on information displayed in the App</li>
+            <li>Interruption or cessation of the Service</li>
+        </ul>
+        <p>Nothing in this Privacy Policy excludes or limits liability for death or personal injury caused by
+            negligence, fraud, or any other liability that cannot be excluded by law.</p>
+
+        <h2 id="changes">17. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements,
+            or App functionality. We will indicate changes by updating the "Last Updated" date at the top of this
+            document. Material changes may also be communicated through an in-app notification. Your continued use of
+            the App after any changes constitutes acceptance of the updated Privacy Policy.</p>
+
+        <h2 id="contact">18. Contact Us</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please
+            contact:</p>
+        <div class="info-box">
+            <p><strong>George Parker</strong></p>
+            <p><strong>Email:</strong> <a href="mailto:closerapp@georgeparker.dev">closerapp@georgeparker.dev</a></p>
+            <p>We aim to respond to all enquiries within <strong>30 days</strong>.</p>
+        </div>
+
+        <p
+            style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-secondary);">
+            By using the Service, you acknowledge that you have read and understood this Privacy Policy and agree to the
+            collection and use of information in accordance with it.</p>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 George Parker. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;"><a href="../terms/">Terms of Service</a> &nbsp;&middot;&nbsp; <a
+                href="../">Home</a></p>
+    </footer>
 
 </body>
+
 </html>
