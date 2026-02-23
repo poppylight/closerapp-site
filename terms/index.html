@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — Closer</title>
+    <meta name="description"
+        content="Terms of Service for Closer - Net Worth Tracker. Read our terms and conditions for using the app.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0a0a0f;
+            --surface: #13131a;
+            --surface-2: #1c1c26;
+            --border: #2a2a3a;
+            --text: #e8e8ed;
+            --text-secondary: #9898a8;
+            --accent: #34d399;
+            --accent-dim: rgba(52, 211, 153, 0.12);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 10;
+        }
+
+        .header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), #059669);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        ul,
+        ol {
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ol {
+            list-style: none;
+            counter-reset: item;
+        }
+
+        ul li,
+        ol li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.65em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.6;
+        }
+
+        ol li {
+            counter-increment: item;
+        }
+
+        ol li::before {
+            content: counter(item) ".";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .highlight-box {
+            background: var(--accent-dim);
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.25rem 0;
+        }
+
+        .highlight-box p {
+            color: var(--text);
+            margin-bottom: 0;
+        }
+
+        .info-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.25rem 0;
+        }
+
+        .warning-box {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.25rem 0;
+        }
+
+        .warning-box p {
+            color: var(--text);
+            margin-bottom: 0;
+        }
+
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .footer a {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 2rem 1.25rem 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">C</div>
+            <span class="header-text">Closer — Terms of Service</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Terms of Service</h1>
+        <p class="last-updated">Last Updated: February 7, 2026</p>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By downloading, installing, or using the Closer mobile application ("App"), you agree to be bound by these
+            Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+
+        <h2>2. Description of Service</h2>
+        <p>Closer is a personal net worth tracking application that allows you to:</p>
+        <ul>
+            <li>Track assets and liabilities to calculate your net worth</li>
+            <li>Set and monitor financial goals</li>
+            <li>View stock and cryptocurrency price data</li>
+            <li>Visualise your financial portfolio breakdown</li>
+            <li>Access home screen widgets and Apple Watch complications</li>
+        </ul>
+        <div class="warning-box">
+            <p><strong>Closer is NOT a financial advisor.</strong> The App is a personal tracking tool only and does not
+                provide financial, investment, tax, or legal advice.</p>
+        </div>
+
+        <h2>3. User Accounts &amp; Data</h2>
+        <p>Closer does not require you to create an account. All data you enter is stored locally on your device. If you
+            enable the optional iCloud sync feature (Pro), your data is stored in your personal Apple iCloud account.
+        </p>
+        <p>You are solely responsible for:</p>
+        <ul>
+            <li>The accuracy of data you enter into the App</li>
+            <li>Maintaining backups of your data</li>
+            <li>Securing access to your device</li>
+        </ul>
+
+        <h2>4. Subscriptions &amp; In-App Purchases</h2>
+        <p>Closer offers a free version with core features and a Pro upgrade available as an in-app purchase.</p>
+
+        <h3>Pro Features Include:</h3>
+        <ul>
+            <li>iCloud backup and sync across devices</li>
+            <li>Multiple financial goals</li>
+            <li>Home screen widgets</li>
+            <li>Apple Watch app and complications</li>
+            <li>Biometric lock (Face ID / Touch ID)</li>
+        </ul>
+
+        <h3>Payment Terms:</h3>
+        <ul>
+            <li>Pro is available as a <strong>one-time purchase</strong></li>
+            <li>Payment is charged to your Apple ID account at confirmation of purchase</li>
+            <li>All purchases are processed through the Apple App Store and are subject to <a
+                    href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank"
+                    rel="noopener">Apple's Standard EULA</a></li>
+        </ul>
+
+        <h3>Refunds:</h3>
+        <p>Refund requests are handled by Apple. To request a refund, visit <a href="https://reportaproblem.apple.com"
+                target="_blank" rel="noopener">reportaproblem.apple.com</a>.</p>
+
+        <h2>5. Third-Party Data</h2>
+        <p>The App displays stock and cryptocurrency price data provided by third-party services (Finnhub and
+            CoinGecko). This data:</p>
+        <ul>
+            <li>May be delayed or inaccurate</li>
+            <li>Is provided for informational purposes only</li>
+            <li>Should not be relied upon for making investment decisions</li>
+            <li>Is subject to the terms and availability of the third-party providers</li>
+        </ul>
+
+        <h2>6. Acceptable Use</h2>
+        <p>You agree not to:</p>
+        <ul>
+            <li>Reverse engineer, decompile, or disassemble the App</li>
+            <li>Use the App for any unlawful purpose</li>
+            <li>Attempt to gain unauthorised access to any part of the App or its systems</li>
+            <li>Redistribute or resell the App or any part of it</li>
+        </ul>
+
+        <h2>7. Intellectual Property</h2>
+        <p>The App, including its design, code, graphics, and content, is owned by George Parker and is protected by
+            intellectual property laws. You are granted a limited, non-exclusive, non-transferable licence to use the
+            App for personal, non-commercial purposes.</p>
+
+        <h2>8. Disclaimer of Warranties</h2>
+        <div class="info-box">
+            <p>The App is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of
+                any kind, either express or implied, including but not limited to:</p>
+            <ul>
+                <li>Merchantability or fitness for a particular purpose</li>
+                <li>Accuracy or reliability of any data or calculations</li>
+                <li>Uninterrupted or error-free operation</li>
+                <li>Compatibility with all devices or operating system versions</li>
+            </ul>
+        </div>
+
+        <h2>9. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by applicable law, George Parker shall not be liable for any indirect,
+            incidental, special, consequential, or punitive damages, or any loss of profits, revenues, data, use,
+            goodwill, or other intangible losses resulting from:</p>
+        <ul>
+            <li>Your use or inability to use the App</li>
+            <li>Any errors, inaccuracies, or omissions in the content</li>
+            <li>Third-party API data including stock and cryptocurrency prices</li>
+            <li>Unauthorised access to or alteration of your data</li>
+            <li>Any financial decisions made based on information displayed in the App</li>
+        </ul>
+
+        <h2>10. Indemnification</h2>
+        <p>You agree to indemnify and hold harmless George Parker from any claims, damages, losses, or expenses arising
+            from your use of the App or your violation of these Terms.</p>
+
+        <h2>11. Modifications to Terms</h2>
+        <p>We reserve the right to modify these Terms at any time. Changes will be effective upon updating the "Last
+            Updated" date. Your continued use of the App after any changes constitutes your acceptance of the new Terms.
+        </p>
+
+        <h2>12. Termination</h2>
+        <p>We may terminate or suspend your access to the App at any time, without prior notice, for conduct that we
+            believe violates these Terms or is harmful to other users or the App.</p>
+
+        <h2>13. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of <strong>England and
+                Wales</strong>, without regard to its conflict of law provisions.</p>
+
+        <h2>14. Severability</h2>
+        <p>If any provision of these Terms is found to be unenforceable, the remaining provisions shall continue in full
+            force and effect.</p>
+
+        <h2>15. Contact Us</h2>
+        <p>If you have any questions about these Terms, please contact us at:</p>
+        <p><strong>Email:</strong> <a href="mailto:closerapp@georgeparker.dev">closerapp@georgeparker.dev</a></p>
+
+        <h2>16. Entire Agreement</h2>
+        <p>These Terms, together with our <a href="../privacy/">Privacy Policy</a>, constitute the entire agreement
+            between you and George Parker regarding the use of the App.</p>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 George Parker. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;"><a href="../privacy/">Privacy Policy</a></p>
+    </footer>
+
+</body>
+
+</html>

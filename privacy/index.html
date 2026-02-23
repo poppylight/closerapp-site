@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Closer</title>
+    <meta name="description" content="Privacy Policy for Closer - Net Worth Tracker. Learn how we protect your data and respect your privacy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0a0a0f;
+            --surface: #13131a;
+            --surface-2: #1c1c26;
+            --border: #2a2a3a;
+            --text: #e8e8ed;
+            --text-secondary: #9898a8;
+            --accent: #34d399;
+            --accent-dim: rgba(52, 211, 153, 0.12);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 10;
+        }
+
+        .header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), #059669);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.65em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.6;
+        }
+
+        strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover { opacity: 0.8; }
+
+        .highlight-box {
+            background: var(--accent-dim);
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.25rem 0;
+        }
+
+        .highlight-box p {
+            color: var(--text);
+            margin-bottom: 0;
+        }
+
+        .info-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.25rem 0;
+        }
+
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .footer a {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            .container { padding: 2rem 1.25rem 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <div class="logo">C</div>
+        <span class="header-text">Closer — Privacy Policy</span>
+    </div>
+</header>
+
+<main class="container">
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last Updated: February 7, 2026</p>
+
+    <h2>Introduction</h2>
+    <p>Closer ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by Closer.</p>
+    <p>This Privacy Policy applies to our mobile application Closer and its associated services (collectively, our "Service").</p>
+
+    <h2>Information We Collect</h2>
+
+    <h3>Information You Provide</h3>
+    <ul>
+        <li><strong>Financial Data:</strong> Asset names, values, and categories you enter to track your net worth</li>
+        <li><strong>Goal Information:</strong> Your financial goals, target amounts, and deadlines</li>
+        <li><strong>Preferences:</strong> Currency selection, display preferences, and notification settings</li>
+    </ul>
+
+    <h3>Information We Do NOT Collect</h3>
+    <div class="highlight-box">
+        <ul>
+            <li>We do <strong>NOT</strong> collect your real name, email address, or contact information</li>
+            <li>We do <strong>NOT</strong> collect bank account numbers, credit card details, or login credentials</li>
+            <li>We do <strong>NOT</strong> connect to your bank or financial institutions</li>
+            <li>We do <strong>NOT</strong> track your location</li>
+            <li>We use <strong>privacy-friendly analytics only</strong> (see Third-Party Services below)</li>
+        </ul>
+    </div>
+
+    <h2>How Your Data is Stored</h2>
+
+    <h3>Local Storage Only</h3>
+    <p>All your financial data is stored <strong>locally on your device</strong> using Apple's secure storage mechanisms. We do not have access to your data, and it never leaves your device unless you explicitly choose to back it up.</p>
+
+    <h3>Optional iCloud Sync (Pro Feature)</h3>
+    <p>If you enable iCloud sync, your data is stored in your personal iCloud account using Apple's CloudKit service. This data is:</p>
+    <ul>
+        <li>Encrypted in transit and at rest</li>
+        <li>Stored in <strong>YOUR</strong> iCloud account, not ours</li>
+        <li>Subject to Apple's privacy policy</li>
+        <li>Accessible only to you</li>
+    </ul>
+
+    <h2>Data Sharing</h2>
+    <div class="highlight-box">
+        <p><strong>We do not sell, trade, or share your personal information with third parties.</strong></p>
+    </div>
+    <p>Your data may only be shared in these limited circumstances:</p>
+    <ul>
+        <li><strong>With your consent:</strong> If you explicitly choose to share your progress (e.g., using the Share feature)</li>
+        <li><strong>Legal requirements:</strong> If required by law or to protect our rights</li>
+    </ul>
+
+    <h2>Third-Party Services</h2>
+
+    <h3>Apple Services</h3>
+    <p>Our app uses the following Apple services:</p>
+    <ul>
+        <li><strong>App Store:</strong> For processing in-app purchases</li>
+        <li><strong>iCloud</strong> (optional): For data backup and sync</li>
+        <li><strong>WidgetKit:</strong> For home screen widgets</li>
+        <li><strong>WatchKit:</strong> For Apple Watch functionality</li>
+    </ul>
+    <p>These services are governed by <a href="https://www.apple.com/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</p>
+
+    <h3>Analytics (TelemetryDeck)</h3>
+    <p>We use TelemetryDeck for privacy-friendly analytics. TelemetryDeck:</p>
+    <ul>
+        <li>Does <strong>NOT</strong> collect personal information</li>
+        <li>Does <strong>NOT</strong> use cookies or track you across apps</li>
+        <li>Only collects anonymous usage data (e.g., which features are used)</li>
+        <li>Is GDPR compliant by design</li>
+    </ul>
+    <p>Learn more: <a href="https://telemetrydeck.com/privacy/" target="_blank" rel="noopener">TelemetryDeck Privacy</a></p>
+
+    <h3>Stock &amp; Crypto Prices</h3>
+    <p>We use third-party APIs to fetch live prices:</p>
+    <ul>
+        <li><strong>Finnhub</strong> for stock prices</li>
+        <li><strong>CoinGecko</strong> for cryptocurrency prices</li>
+    </ul>
+    <p>These services only receive the stock/crypto symbols you search for. No personal data is sent.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>Our Service is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.</p>
+
+    <h2>Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+        <li><strong>Access:</strong> View all data stored in the app</li>
+        <li><strong>Delete:</strong> Delete all your data by uninstalling the app</li>
+        <li><strong>Export:</strong> Export your data (Pro feature)</li>
+        <li><strong>Disable Sync:</strong> Turn off iCloud sync at any time</li>
+    </ul>
+
+    <h2>Data Retention</h2>
+    <p>Your data is retained on your device until you delete it or uninstall the app. If you use iCloud sync, your data remains in your iCloud account until you delete it.</p>
+
+    <h2>Security</h2>
+    <p>We implement appropriate technical measures to protect your data:</p>
+    <ul>
+        <li>Local data is stored using Apple's secure UserDefaults and Keychain</li>
+        <li>Optional Face ID / Touch ID protection</li>
+        <li>iCloud data is encrypted using Apple's security standards</li>
+    </ul>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by updating the "Last Updated" date at the top of this policy.</p>
+
+    <h2>Disclaimer</h2>
+    <div class="info-box">
+        <p><strong>Closer is not a financial advisor.</strong> This app is a personal tracking tool only.</p>
+        <ul>
+            <li>The app does <strong>NOT</strong> provide financial, investment, tax, or legal advice</li>
+            <li>All data you enter is self-reported and we make no guarantees about accuracy</li>
+            <li>Stock and cryptocurrency prices are provided by third-party APIs and may be delayed or inaccurate</li>
+            <li>You should consult a qualified financial advisor before making any financial decisions</li>
+            <li>We are <strong>NOT</strong> responsible for any financial decisions you make based on information displayed in this app</li>
+        </ul>
+    </div>
+    <p><strong>Use of this app is at your own risk.</strong> To the fullest extent permitted by law, we disclaim all warranties and shall not be liable for any damages arising from your use of this app.</p>
+
+    <h2>Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, in no event shall the developer be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from:</p>
+    <ul>
+        <li>Your use or inability to use the app</li>
+        <li>Any errors or inaccuracies in the content</li>
+        <li>Third-party API data (stock prices, cryptocurrency values)</li>
+        <li>Unauthorized access to your data</li>
+    </ul>
+
+    <h2>Contact Us</h2>
+    <p>If you have questions about this Privacy Policy, please contact us at:</p>
+    <p><strong>Email:</strong> <a href="mailto:closerapp@georgeparker.dev">closerapp@georgeparker.dev</a></p>
+
+    <h2>Consent</h2>
+    <p>By using our Service, you consent to this Privacy Policy.</p>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 George Parker. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;"><a href="../terms/">Terms of Service</a></p>
+</footer>
+
+</body>
+</html>
