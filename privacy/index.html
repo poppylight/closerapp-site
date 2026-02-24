@@ -26,10 +26,33 @@
             --border: #2a2a3a;
             --text: #e8e8ed;
             --text-secondary: #9898a8;
-            --accent: #34d399;
-            --accent-dim: rgba(52, 211, 153, 0.12);
+            --accent: #059669;
+            --accent-dim: rgba(5, 150, 105, 0.12);
             --warning: rgba(245, 158, 11, 0.08);
             --warning-border: rgba(245, 158, 11, 0.2);
+            --header-bg: rgba(10, 10, 15, 0.85);
+            --h1-gradient-start: #fff;
+            --h1-gradient-end: #9898a8;
+            --highlight-border: rgba(5, 150, 105, 0.2);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #f8f9fa;
+                --surface: #ffffff;
+                --surface-2: #f0f1f3;
+                --border: #e0e2e6;
+                --text: #1a1a2e;
+                --text-secondary: #5a5a72;
+                --accent: #059669;
+                --accent-dim: rgba(5, 150, 105, 0.08);
+                --warning: rgba(245, 158, 11, 0.06);
+                --warning-border: rgba(245, 158, 11, 0.25);
+                --header-bg: rgba(248, 249, 250, 0.85);
+                --h1-gradient-start: #1a1a2e;
+                --h1-gradient-end: #5a5a72;
+                --highlight-border: rgba(5, 150, 105, 0.25);
+            }
         }
 
         body {
@@ -45,7 +68,7 @@
             padding: 1.25rem 1.5rem;
             position: sticky;
             top: 0;
-            background: rgba(10, 10, 15, 0.85);
+            background: var(--header-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             z-index: 10;
@@ -108,7 +131,7 @@
             font-weight: 700;
             letter-spacing: -0.03em;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #fff, var(--text-secondary));
+            background: linear-gradient(135deg, var(--h1-gradient-start), var(--h1-gradient-end));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -236,7 +259,7 @@
 
         .highlight-box {
             background: var(--accent-dim);
-            border: 1px solid rgba(52, 211, 153, 0.2);
+            border: 1px solid var(--highlight-border);
             border-radius: 12px;
             padding: 1.25rem 1.5rem;
             margin: 1.25rem 0;
@@ -697,7 +720,7 @@
             </tbody>
         </table>
         <p>To exercise any of these rights, or if you have concerns about how your data is processed, contact us at <a
-                href="mailto:closerapp@georgeparker.dev">closerapp@georgeparker.dev</a>. We will respond within
+                href="mailto:support@closerapp.co.uk">support@closerapp.co.uk</a>. We will respond within
             <strong>30 days</strong> as required by law.
         </p>
         <p>You also have the right to lodge a complaint with the <a href="https://ico.org.uk/make-a-complaint/"
@@ -770,7 +793,7 @@
             contact:</p>
         <div class="info-box">
             <p><strong>George Parker</strong></p>
-            <p><strong>Email:</strong> <a href="mailto:closerapp@georgeparker.dev">closerapp@georgeparker.dev</a></p>
+            <p><strong>Email:</strong> <a href="mailto:support@closerapp.co.uk">support@closerapp.co.uk</a></p>
             <p>We aim to respond to all enquiries within <strong>30 days</strong>.</p>
         </div>
 
