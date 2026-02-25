@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Closer — Net Worth Tracker</title>
+    <title>Closer — Track Your Journey to Financial Freedom</title>
     <meta name="description"
-        content="Closer helps you track your journey to financial freedom. Set a goal, add your assets, and watch your progress grow.">
+        content="Closer helps you track your net worth, set financial goals, and watch your progress grow. Available on iPhone, iPad, and Apple Watch.">
+    <meta name="keywords" content="net worth tracker, financial freedom, wealth tracker, investment tracker, iOS app">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
         *,
         *::before,
@@ -20,13 +22,21 @@
         }
 
         :root {
-            --bg: #0a0a0f;
-            --surface: #13131a;
-            --border: #2a2a3a;
-            --text: #e8e8ed;
-            --text-secondary: #9898a8;
+            --bg: #050508;
+            --surface: #0c0c12;
+            --surface-raised: #12121c;
+            --border: #1e1e2e;
+            --text: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-tertiary: #55556a;
             --accent: #34d399;
-            --accent-dim: rgba(52, 211, 153, 0.12);
+            --accent-bright: #6ee7b7;
+            --accent-dim: rgba(52, 211, 153, 0.08);
+            --accent-glow: rgba(52, 211, 153, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -35,111 +45,902 @@
             color: var(--text);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
+        /* ---- NAV ---- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(5, 5, 8, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .nav-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nav-brand span {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: #000 !important;
+            padding: 0.45rem 1.1rem;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(52, 211, 153, 0.3);
+        }
+
+        /* ---- HERO ---- */
         .hero {
+            position: relative;
             text-align: center;
-            padding: 4rem 1.5rem;
-            max-width: 600px;
+            padding: 10rem 2rem 4rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .logo {
-            width: 72px;
-            height: 72px;
-            background: linear-gradient(135deg, var(--accent), #059669);
-            border-radius: 18px;
-            display: flex;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(52, 211, 153, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 2rem;
-            color: #000;
-            margin: 0 auto 2rem;
-            box-shadow: 0 0 60px rgba(52, 211, 153, 0.2);
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
         }
 
         h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            margin-bottom: 0.75rem;
-            background: linear-gradient(135deg, #fff, var(--text-secondary));
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
+
+        h1 .gradient-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent-bright));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .tagline {
-            font-size: 1.1rem;
+        .hero-subtitle {
+            font-size: 1.15rem;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
         }
 
-        .links {
+        .hero-actions {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 1rem;
         }
 
-        .links a {
-            color: var(--accent);
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: #000;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 700;
             font-size: 0.95rem;
-            padding: 0.6rem 1.25rem;
-            border: 1px solid rgba(52, 211, 153, 0.25);
-            border-radius: 10px;
+            padding: 0.85rem 1.8rem;
+            border-radius: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(52, 211, 153, 0.3);
+        }
+
+        .btn-primary svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.85rem 1.8rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
             transition: all 0.2s;
         }
 
-        .links a:hover {
-            background: var(--accent-dim);
-            border-color: rgba(52, 211, 153, 0.5);
+        .btn-secondary:hover {
+            color: var(--text);
+            border-color: var(--text-tertiary);
+            background: var(--surface);
         }
 
-        .footer {
-            position: fixed;
+        /* ---- PHONE SHOWCASE ---- */
+        .phone-showcase {
+            position: relative;
+            max-width: 1100px;
+            margin: 2rem auto 0;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 1.5rem;
+        }
+
+        .phone-showcase::after {
+            content: '';
+            position: absolute;
             bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, var(--bg), transparent);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .phone-frame {
+            position: relative;
+            width: 260px;
+            flex-shrink: 0;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .phone-frame img {
             width: 100%;
+            display: block;
+        }
+
+        .phone-frame.hero-phone {
+            width: 280px;
+            z-index: 1;
+        }
+
+        .phone-frame.side-phone {
+            opacity: 0.7;
+            transform: scale(0.92);
+        }
+
+        .phone-frame.side-phone:hover {
+            opacity: 0.9;
+            transform: scale(0.95);
+        }
+
+        /* ---- SECTION STYLES ---- */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
             text-align: center;
-            padding: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
             font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ---- FEATURES GRID ---- */
+        .features {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .features-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--surface-raised);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(52, 211, 153, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--accent-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        /* ---- SHOWCASES ---- */
+        .showcase {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .showcase.reversed {
+            direction: rtl;
+        }
+
+        .showcase.reversed>* {
+            direction: ltr;
+        }
+
+        .showcase-text {
+            padding: 1rem 0;
+        }
+
+        .showcase-text .section-label {
+            text-align: left;
+        }
+
+        .showcase-text h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .showcase-text p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        .showcase-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .showcase-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.92rem;
             color: var(--text-secondary);
         }
 
+        .showcase-list li .check {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--accent);
+            font-size: 0.7rem;
+        }
+
+        .showcase-phone {
+            display: flex;
+            justify-content: center;
+        }
+
+        .showcase-phone .phone-frame {
+            width: 260px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
+        }
+
+        /* ---- CURRENCIES ---- */
+        .currencies {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .currency-chips {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .currency-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--surface-raised);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: border-color 0.2s;
+        }
+
+        .currency-chip:hover {
+            border-color: var(--accent);
+            color: var(--text);
+        }
+
+        /* ---- CTA ---- */
+        .cta {
+            text-align: center;
+            padding: 8rem 2rem;
+            position: relative;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(52, 211, 153, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+        }
+
+        /* ---- FLOATING GLOW ORBS ---- */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .glow-orb.green {
+            background: rgba(52, 211, 153, 0.12);
+        }
+
+        .glow-orb.blue {
+            background: rgba(99, 102, 241, 0.08);
+        }
+
+        /* ---- MOBILE ---- */
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .showcase {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .showcase.reversed {
+                direction: ltr;
+            }
+
+            .showcase-text .section-label {
+                text-align: center;
+            }
+
+            .showcase-list {
+                align-items: center;
+            }
+
+            .phone-showcase {
+                gap: 0.75rem;
+            }
+
+            .phone-frame.hero-phone {
+                width: 220px;
+            }
+
+            .phone-frame.side-phone {
+                width: 180px;
+            }
+        }
+
         @media (max-width: 600px) {
-            h1 {
-                font-size: 1.75rem;
+            nav {
+                padding: 0.75rem 1.25rem;
+            }
+
+            .nav-links a:not(.nav-cta) {
+                display: none;
             }
 
             .hero {
-                padding: 3rem 1.25rem;
+                padding: 8rem 1.25rem 3rem;
             }
+
+            .phone-frame.side-phone {
+                display: none;
+            }
+
+            .phone-frame.hero-phone {
+                width: 250px;
+            }
+
+            section {
+                padding: 4rem 1.25rem;
+            }
+
+            .showcase {
+                gap: 2rem;
+            }
+
+            .showcase-phone .phone-frame {
+                width: 220px;
+            }
+        }
+
+        /* ---- ANIMATIONS ---- */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-5 {
+            animation-delay: 0.5s;
+        }
+
+        /* Scroll-triggered animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
 
-    <div class="hero">
-        <div class="logo">C</div>
-        <h1>Closer</h1>
-        <p class="tagline">Track your journey to financial freedom.</p>
-        <div class="links">
+    <!-- NAV -->
+    <nav>
+        <a href="/" class="nav-brand">
+            <div class="nav-logo"><img src="./assets/icon-dark.png" alt="Closer"></div>
+            <span>Closer</span>
+        </a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#goal-tracking">Goal</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#" class="nav-cta">Download</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="animate-in delay-1">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Available on iPhone, iPad & Apple Watch
+            </div>
+        </div>
+        <h1 class="animate-in delay-2">
+            Know how <span class="gradient-text">close</span> you are<br>to financial freedom
+        </h1>
+        <p class="hero-subtitle animate-in delay-3">
+            Track your net worth, set your goal, and watch your progress every step of the way. Beautifully simple.
+        </p>
+        <div class="hero-actions animate-in delay-4">
+            <a href="#" class="btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                </svg>
+                Download for iOS
+            </a>
+            <a href="#features" class="btn-secondary">See features</a>
+        </div>
+
+        <div class="phone-showcase animate-in delay-5">
+            <div class="phone-frame side-phone">
+                <img src="./screenshots/assets-dark.png" alt="Assets view showing portfolio breakdown">
+            </div>
+            <div class="phone-frame hero-phone">
+                <img src="./screenshots/goal-dark.png" alt="Goal tracking with progress ring">
+            </div>
+            <div class="phone-frame side-phone">
+                <img src="./screenshots/progress-dark.png" alt="Progress summary with weekly and monthly gains">
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES GRID -->
+    <section class="features" id="features">
+        <div class="section-header reveal">
+            <p class="section-label">Features</p>
+            <h2 class="section-title">Everything you need to<br>track your wealth</h2>
+            <p class="section-desc">Built with care for people who want a clear, distraction-free view of their
+                financial progress.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon">🎯</div>
+                <h3>Goal Tracking</h3>
+                <p>Set your target net worth and deadline. Watch the progress ring fill as you get closer to financial
+                    freedom.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">📊</div>
+                <h3>Portfolio Breakdown</h3>
+                <p>See your assets in a beautiful pie chart. Track savings, property, stocks, crypto, pensions, and
+                    more.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">📈</div>
+                <h3>Live Stock & Crypto</h3>
+                <p>Search and add real stocks and crypto. Prices update automatically so your net worth stays accurate.
+                </p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">🏆</div>
+                <h3>Milestones</h3>
+                <p>Celebrate every step. Unlock milestone badges at 10%, 25%, 50%, 75%, 90%, and 100% of your goal.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">⌚</div>
+                <h3>Apple Watch</h3>
+                <p>Glance at your net worth and progress right from your wrist. Complications and widgets included.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">🔒</div>
+                <h3>Privacy First</h3>
+                <p>Your financial data never leaves your device. Face ID lock and privacy mode keep your numbers safe.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE 1: GOAL TRACKING -->
+    <section id="goal-tracking">
+        <div class="showcase reveal">
+            <div class="showcase-phone">
+                <div class="phone-frame">
+                    <img src="./screenshots/goal-dark.png" alt="Goal tracking view">
+                </div>
+            </div>
+            <div class="showcase-text">
+                <p class="section-label">Goal Tracking</p>
+                <h2>Set your goal.<br>Watch yourself get closer.</h2>
+                <p>See exactly how far you've come and how much further you need to go. Weekly change tracking, daily
+                    savings targets, and milestone celebrations keep you motivated.</p>
+                <ul class="showcase-list">
+                    <li><span class="check">✓</span> Visual progress ring with percentage</li>
+                    <li><span class="check">✓</span> Weekly and monthly change tracking</li>
+                    <li><span class="check">✓</span> Daily, weekly & monthly savings targets</li>
+                    <li><span class="check">✓</span> Countdown to your deadline</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE 2: PORTFOLIO -->
+    <section id="portfolio">
+        <div class="showcase reversed reveal">
+            <div class="showcase-phone">
+                <div class="phone-frame">
+                    <img src="./screenshots/assets-dark.png" alt="Portfolio view with pie chart">
+                </div>
+            </div>
+            <div class="showcase-text">
+                <p class="section-label">Portfolio</p>
+                <h2>All your assets.<br>One beautiful view.</h2>
+                <p>Add everything — savings, property, stocks, crypto, pensions, ISAs. See your full financial picture
+                    at a glance with a colour-coded breakdown.</p>
+                <ul class="showcase-list">
+                    <li><span class="check">✓</span> 12+ asset types supported</li>
+                    <li><span class="check">✓</span> Real-time stock & crypto prices</li>
+                    <li><span class="check">✓</span> Interactive pie chart</li>
+                    <li><span class="check">✓</span> Percentage breakdown per asset</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CURRENCIES -->
+    <section class="currencies">
+        <div class="section-header reveal">
+            <p class="section-label">Multi-Currency</p>
+            <h2 class="section-title">Your currency. Your way.</h2>
+            <p class="section-desc">Track your wealth in the currency you know. Switch any time.</p>
+        </div>
+        <div class="currency-chips reveal">
+            <div class="currency-chip">🇬🇧 GBP</div>
+            <div class="currency-chip">🇺🇸 USD</div>
+            <div class="currency-chip">🇪🇺 EUR</div>
+            <div class="currency-chip">🇨🇦 CAD</div>
+            <div class="currency-chip">🇦🇺 AUD</div>
+            <div class="currency-chip">🇯🇵 JPY</div>
+            <div class="currency-chip">🇨🇭 CHF</div>
+            <div class="currency-chip">🇮🇳 INR</div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE 3: DARK MODE & PRO -->
+    <section>
+        <div class="showcase reveal">
+            <div class="showcase-phone">
+                <div class="phone-frame">
+                    <img src="./screenshots/settings-dark.png" alt="Settings with Pro features">
+                </div>
+            </div>
+            <div class="showcase-text">
+                <p class="section-label">Closer Pro</p>
+                <h2>Unlock the<br>full experience.</h2>
+                <p>Closer is free to use. Upgrade to Pro for a one-time payment to unlock widgets, themes, privacy mode,
+                    Face ID lock, and more.</p>
+                <ul class="showcase-list">
+                    <li><span class="check">✓</span> Home screen & lock screen widgets</li>
+                    <li><span class="check">✓</span> Privacy mode to hide amounts</li>
+                    <li><span class="check">✓</span> Face ID app lock</li>
+                    <li><span class="check">✓</span> One-time purchase — no subscription</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="reveal">
+            <h2>Start tracking your journey<br>to financial freedom.</h2>
+            <p>Free to download. No account needed. Your data stays on your device.</p>
+            <a href="#" class="btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                </svg>
+                Download for iOS
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
             <a href="./privacy/">Privacy Policy</a>
             <a href="./terms/">Terms of Service</a>
         </div>
-    </div>
+        <p class="footer-copy">&copy; 2026 George Parker. All rights reserved.</p>
+    </footer>
 
-    <div class="footer">
-        <p>&copy; 2026 George Parker. All rights reserved.</p>
-    </div>
+    <!-- SCROLL REVEAL SCRIPT -->
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        reveals.forEach(el => observer.observe(el));
+    </script>
 
 </body>
 
